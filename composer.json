@@ -1,0 +1,22 @@
+{
+    "name": "samshal/scripd",
+    "description": "Easily transfer database structures as json documents, or via rest apis",
+    "keywords": ["json", "jsyn", "database", "schema", "parser", "generator"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Samuel Adeshina",
+            "email": "samueladeshina73@gmail.com",
+            "homepage": "http://samshal.github.io"
+        }
+    ],
+    "require": {
+        "php": "^5.3 || ^7.0"
+    },
+    "autoload":{
+        "psr-4":{
+            "Samshal\\Scripd\\":"./src"
+        }
+    }
+}

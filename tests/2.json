@@ -1,0 +1,16 @@
+{
+	":table-group":[
+		{
+			":crud-action":"alter",
+			"name":"facultys",
+			"add-column":[
+				{
+					"name":"full_name",
+					"data-type":"varchar(30)",
+					"not-null":true,
+					"default":"'john doe'"
+				}
+			]
+		}
+	]
+}

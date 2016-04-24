@@ -1,0 +1,12 @@
+{
+	":table":{
+		":crud-action":"drop",
+		"if-exists":true,
+		"name":"faculty"
+	},
+
+	":database":{
+		":crud-action":"drop",
+		"name":"another_unify_schools"
+	}
+}

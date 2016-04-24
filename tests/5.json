@@ -1,0 +1,37 @@
+{
+	":database":{
+		"name":"unify_school",
+		":crud-action":"create",
+
+		":table-group":[
+			{
+				":crud-action":"create",
+				"name":"student",
+				"comment":"Student Biographical Information",
+				"columns":[
+					{
+						"name":"id",
+						"data-type":"int",
+						"primary-key":true,
+						"auto_increment":true
+					},
+					{
+						"name":"first_name",
+						"data-type":"varchar(20)",
+						"not-null":true
+					},
+					{
+						"name":"last_name",
+						"data-type":"varchar(20)",
+						"not-null":true
+					}
+				]
+			},
+			{
+				":crud-action":"create",
+				"name":"staff_profil",
+
+			}
+		]
+	}
+}
