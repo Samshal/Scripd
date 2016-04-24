@@ -1,0 +1,28 @@
+{
+	"mysql":[
+		"{{NAME}}",
+		"{{DATA TYPE}}",
+		"[{{NULL}}]",
+		"[{{NOT NULL}}]",
+		"[DEFAULT]",
+		"[{{DEFAULT}}]",
+		"[{{AUTO_INCREMENT}}]",
+		"[{{UNIQUE}}]",
+		"[{{PRIMARY KEY}}]",
+		"[COMMENT]",
+		"[{{COMMENT}}]",
+		"[COLUMN FORMAT]",
+		"[{{COLUMN FORMAT}}]",
+		"[STORAGE]",
+		"[{{STORAGE}}]",
+		"[REFERENCES]",
+		"[{{REFERENCES}}]",
+		"[MATCH FULL]",
+		"[MATCH PARTIAL]",
+		"[MATCH SIMPLE]",
+		"[ON UPDATE]",
+		"[{{ON UPDATE}}]",
+		"[ON DELETE]",
+		"[{{ON DELETE}}]"
+	]
+}

@@ -1,0 +1,15 @@
+{
+	"mysql":[
+		"CREATE DATABASE",
+		"[{{IF NOT EXISTS}}]",
+		"{{NAME}}",
+		"[DEFAULT CHARACTER SET]",
+		"[{{DEFAULT CHARACTER SET}}]",
+		"[DEFAULT COLLATE]",
+		"[{{COLLATE}}]",
+		"[CHARACTER SET]",
+		"[{{CHARACTER SET}}]",
+		"[COLLATE]",
+		"[{{COLLATE}}]"
+	]
+}

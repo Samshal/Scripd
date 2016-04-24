@@ -1,0 +1,23 @@
+{
+	"mysql":[
+		"CREATE",
+		"[OR REPLACE]",
+		"[ALGORITHM]",
+		"=",
+		"[{{ALGORITHM}}]",
+		"[DEFINER]",
+		"=",
+		"[{{DEFINER}}]",
+		"[SQL SECURITY]",
+		"=",
+		"[{{SQL SECURITY}}]",
+		"VIEW",
+		"{{name}}",
+		"{{columns}}",
+		"AS",
+		"{{AS}}",
+		"[WITH]",
+		"[{{WITH}}]",
+		"[CHECK OPTION]"
+	]
+}

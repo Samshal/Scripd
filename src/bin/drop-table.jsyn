@@ -1,0 +1,10 @@
+{
+	"mysql":[
+		"DROP TABLE",
+		"[{{TEMPORARY}}]",
+		"[{{IF EXISTS}}]",
+		"{{name}}",
+		"[RESTRICT]",
+		"[CASCADE]"
+	]
+}

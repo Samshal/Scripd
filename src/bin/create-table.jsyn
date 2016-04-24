@@ -1,0 +1,13 @@
+{
+	"mysql":[
+		"CREATE TABLE",
+		"[{{TEMPORARY}}]",
+		"[{{IF NOT EXISTS}}]",
+		"{{name}}",
+		"{{columns}}",
+		"[DEFAULT CHARACTER SET]",
+		"[{{DEFAULT CHARACTER SET}}]",
+		"[DEFAULT COLLATE]",
+		"[{{DEFAULT COLLATE}}]"
+	]
+}

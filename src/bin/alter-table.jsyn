@@ -1,0 +1,30 @@
+{
+	"mysql":[
+		"ALTER TABLE",
+		"{{name}}",
+		"[ADD COLUMN]",
+		"[{{ADD COLUMN}}]",
+		"[ADD INDEX]",
+		"[{{ADD INDEX}}]",
+		"[ADD CONSTRAINT]",
+		"[{{ADD CONSTRAINT}}]",
+		"[ALGORITHM]",
+		"[{{ALGORITHM}}]",
+		"[DROP COLUMN]",
+		"[{{DROP COLUMN}}]",
+		"[DROP PRIMARY KEY]",
+		"[{{DROP PRIMARY KEY}}]",
+		"[DROP FOREIGN KEY]",
+		"[{{DROP FOREIGN KEY}}]",
+		"[DROP INDEX]",
+		"[{{DROP INDEX}}]",
+		"[{{DISABLE KEYS}}]",
+		"[{{ENABLE KEYS}}]",
+		"[RENAME TO]",
+		"[{{RENAME TO}}]",
+		"[RENAME AS]",
+		"[{{RENAME AS}}]",
+		"[CONVERT TO CHARACTER SET]",
+		"[{{CONVERT TO CHARACTER SET}}]"
+	]
+}

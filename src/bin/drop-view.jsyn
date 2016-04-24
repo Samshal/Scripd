@@ -1,0 +1,9 @@
+{
+	"mysql":[
+		"DROP VIEW",
+		"[{{IF EXISTS}}]",
+		"{{name}}",
+		"[RESTRICT]",
+		"[CASCADE]"
+	]
+}
