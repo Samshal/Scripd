@@ -12,7 +12,7 @@
 use Samshal\Scripd\JsonDbStructure;
 
 class JsonDbStructureTest extends PHPUnit_Framework_TestCase {
-	protected $jsonFiles = [1=>__DIR__."/1.json", 2=>__DIR__."/2.json", 3=>__DIR__."/3.json", 4=>__DIR__."/4.json"];
+	protected $jsonFiles = [1=>__DIR__."/json/1.json", 2=>__DIR__."/json/2.json", 3=>__DIR__."/json/3.json", 4=>__DIR__."/json/4.json"];
 
 	protected $sqlStmts = [
 		1 => "CREATE DATABASE another_unify_schools".
