@@ -1,4 +1,5 @@
 language: php
 php:
   - '7.0'
+script: composer dump-autoload
 script: phpunit --bootstrap vendor/autoload.php tests/JsonDbStructureTest.php
