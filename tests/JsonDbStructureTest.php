@@ -58,7 +58,7 @@ class JsonDbStructureTest extends PHPUnit_Framework_TestCase
                  'USE another_unify_schools;'.
                  "CREATE TABLE students (id int PRIMARY KEY, first_name varchar(20) DEFAULT 'samuel', last_name varchar(20), class varchar(10));".
                  'CREATE TABLE faculty (fac_id int AUTO_INCREMENT PRIMARY KEY, first_name varchar(20), last_name varchar(20));'.
-                 'CREATE TABLE subjects (subject_id int AUTO_INCREMENT PRIMARY KEY, subject_name varchar(30), subject_faculty int REFERENCES faculty('.'fac_id) ON UPDATE cascade ON DELETE set null)', self::parseJsonFile(__DIR__.'/json/1.json');
+                 'CREATE TABLE subjects (subject_id int AUTO_INCREMENT PRIMARY KEY, subject_name varchar(30), subject_faculty int REFERENCES faculty('.'fac_id) ON UPDATE cascade ON DELETE set null)', self::parseJsonFile(__DIR__.'/json/1.json')
             ]
         );
     }
