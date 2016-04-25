@@ -9,31 +9,57 @@
  * file that was distributed with this source code.
  */
 
-use Samshal\Scripd\JsonDbStructure;
+class JsonDbStructureTest extends PHPUnit_Framework_TestCase
+{
+    protected $jsonFiles = [1 => __DIR__.'/json/1.json', 2 => __DIR__.'/json/2.json', 3 => __DIR__.'/json/3.json', 4 => __DIR__.'/json/4.json'];
 
-class JsonDbStructureTest extends PHPUnit_Framework_TestCase {
-	protected $jsonFiles = [1=>__DIR__."/json/1.json", 2=>__DIR__."/json/2.json", 3=>__DIR__."/json/3.json", 4=>__DIR__."/json/4.json"];
+    protected $sqlStmts = [
+        1 => 'CREATE DATABASE another_unify_schools;'.
+             'USE another_unify_schools;'.
+             "CREATE TABLE students (id int PRIMARY KEY, first_name varchar(20) DEFAULT 'samuel', last_name varchar(20), class varchar(10));".
+             'CREATE TABLE faculty (fac_id int AUTO_INCREMENT PRIMARY KEY, first_name varchar(20), last_name varchar(20));'.
+             'CREATE TABLE subjects (subject_id int AUTO_INCREMENT PRIMARY KEY, subject_name varchar(30), subject_faculty int REFERENCES faculty('.'fac_id) ON UPDATE cascade ON DELETE set null)',
 
-	protected $sqlStmts = [
-		1 => "CREATE DATABASE another_unify_schools;".
-			 "USE another_unify_schools;".
-			 "CREATE TABLE students (id int PRIMARY KEY, first_name varchar(20) DEFAULT 'samuel', last_name varchar(20), class varchar(10));".
-			 "CREATE TABLE faculty (fac_id int AUTO_INCREMENT PRIMARY KEY, first_name varchar(20), last_name varchar(20));".
-			 "CREATE TABLE subjects (subject_id int AUTO_INCREMENT PRIMARY KEY, subject_name varchar(30), subject_faculty int REFERENCES faculty("."fac_id) ON UPDATE cascade ON DELETE set null)",
+        2 => "ALTER TABLE facultys ADD COLUMN (full_name varchar(30) NOT NULL DEFAULT 'john doe')",
 
-		2 => "ALTER TABLE facultys ADD COLUMN (full_name varchar(30) NOT NULL DEFAULT 'john doe')",
+        3 => 'DROP TABLE IF EXISTS faculty;'.
+             'DROP DATABASE another_unify_schools',
 
-		3 => "DROP TABLE IF EXISTS faculty;".
-			 "DROP DATABASE another_unify_schools",
+        4 => 'CREATE VIEW student_vw (id, first_name, last_name, class) AS select * from students where id < 3 WITH LOCAL CHECK OPTION',
+    ];
 
-		4 => "CREATE VIEW student_vw (id, first_name, last_name, class) AS select * from students where id < 3 WITH LOCAL CHECK OPTION"
-	];
+    public function testParseStructure()
+    {
+        foreach ($this->jsonFiles as $index => $jsonFile) {
+            $jsonDbStructure = new Samshal\Scripd\JsonDbStructure($jsonFile, 'mysql');
+            $jsonDbStructure->parseStructure();
+            $this->assertEquals($jsonDbStructure->getGeneratedSql(';'), $this->sqlStmts[$index]);
+        }
+    }
 
-	public function testParseStructure(){
-		foreach ($this->jsonFiles as $index=>$jsonFile){
-			$jsonDbStructure = new Samshal\Scripd\JsonDbStructure($jsonFile, "mysql");
-			$jsonDbStructure->parseStructure();
-			$this->assertEquals($jsonDbStructure->getGeneratedSql(";"), $this->sqlStmts[$index]);
-		}
-	}
+    /**
+     * @dataProvider createDatabaseDataProvider
+    */
+    public function testCreateDatabase($expected, $sqlString){
+        $this->assertEquals($expected, $sqlString);
+    }
+
+    public function parseJsonFile($jsonFile){
+        $jsonDbStructure = new Samshal\Scripd\JsonDbStructure($jsonFile, 'mysql');
+        $jsonDbStructure->parseStructure();
+        return $jsonDbStructure->getGeneratedSql(';');
+    }
+
+    public function createDatabaseDataProvider()
+    {
+        return array(
+            'Create Database with Multiple Tables'=>[
+                'CREATE DATABASE another_unify_schools;'.
+                 'USE another_unify_schools;'.
+                 "CREATE TABLE students (id int PRIMARY KEY, first_name varchar(20) DEFAULT 'samuel', last_name varchar(20), class varchar(10));".
+                 'CREATE TABLE faculty (fac_id int AUTO_INCREMENT PRIMARY KEY, first_name varchar(20), last_name varchar(20));'.
+                 'CREATE TABLE subjects (subject_id int AUTO_INCREMENT PRIMARY KEY, subject_name varchar(30), subject_faculty int REFERENCES faculty('.'fac_id) ON UPDATE cascade ON DELETE set null)', self::parseJsonFile(__DIR__.'/json/1.json');
+            ]
+        );
+    }
 }

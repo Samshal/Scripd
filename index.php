@@ -1,15 +1,15 @@
 <?php
-	require "vendor/autoload.php";
+    require 'vendor/autoload.php';
 
-	$jE = new Samshal\Scripd\JsonDbStructure("tests/5.json", "mysql");
+    $jE = new Samshal\Scripd\JsonDbStructure('tests/5.json', 'mysql');
 
-	$jE->parseStructure();
+    $jE->parseStructure();
 
-	$sql = $jE->getGeneratedSql();
+    $sql = $jE->getGeneratedSql();
 
-	$fh = fopen("./sql.sql", "ar");
+    $fh = fopen('./sql.sql', 'ar');
 
-	fwrite($fh, $sql);
+    fwrite($fh, $sql);
 
-	//echo $jE->toString();
-?>
+    //echo $jE->toString();
+;
