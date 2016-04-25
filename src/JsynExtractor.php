@@ -23,7 +23,7 @@ final class JsynExtractor {
 	/**
 	 * @var string
 	 *
-	 * JSYN file content
+	 * Content of the JSYN File
 	 */
 	private $jsyn;
 
