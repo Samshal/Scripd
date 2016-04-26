@@ -4,7 +4,6 @@
     "keywords": ["json", "jsyn", "database", "schema", "parser", "generator"],
     "type": "library",
     "license": "MIT",
-    "version":"v1.0.0",
     "authors": [
         {
             "name": "Samuel Adeshina",
