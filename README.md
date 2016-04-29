@@ -86,5 +86,5 @@ composer require samshal/scripd
 
     $sql = $jsonDBStructure->getGeneratedSql();
     
-    echo $jsonDBStructure->toString();
+    echo $sql;
 ```
