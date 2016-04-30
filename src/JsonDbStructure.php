@@ -345,7 +345,7 @@ final class JsonDbStructure
                 }
             }
         }
-       //echo "<pre>".print_r($jsyn)."</pre>";
+        
         return implode(' ', $jsyn);
     }
 
