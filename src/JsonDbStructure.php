@@ -51,6 +51,7 @@ final class JsonDbStructure
     private $objectDefiners = [
         'columns',
         'add-column',
+        'foreign-key'
     ];
 
     /**
@@ -65,6 +66,8 @@ final class JsonDbStructure
         'right-curly-brace' => '}',
         'left-square-bracket' => '[',
         'right-square-bracket' => ']',
+        'left-bracket' => '(',
+        'right-bracket' => ')',
     ];
 
     /**
@@ -302,14 +305,19 @@ final class JsonDbStructure
                 $string = $jsyn[$i];
                 $toSetValue = false;
                 $isConstant = false;
+                $replaceWithComma = false;
 
                 if (self::enclosed($this->specialCharacters['left-square-bracket'], $this->specialCharacters['right-square-bracket'], $string)) {
                     $string = str_replace($this->specialCharacters['left-square-bracket'], null, str_replace($this->specialCharacters['right-square-bracket'], null, $string));
                     if (self::enclosed($this->specialCharacters['left-curly-brace'], $this->specialCharacters['right-curly-brace'], $string)) {
                         $string = str_replace($this->specialCharacters['left-curly-brace'], null, str_replace($this->specialCharacters['right-curly-brace'], null, $string));
                         $toSetValue = true;
+                    } else if (self::enclosed($this->specialCharacters['left-bracket'], $this->specialCharacters['right-bracket'], $string)) {
+                        $string = str_replace($this->specialCharacters['left-bracket'], null, str_replace($this->specialCharacters['right-bracket'], null, $string));
+                        $toSetValue = false;
+                        $replaceWithComma = true;
                     }
-                } elseif (self::enclosed($this->specialCharacters['left-curly-brace'], $this->specialCharacters['right-curly-brace'], $string)) {
+                } else if (self::enclosed($this->specialCharacters['left-curly-brace'], $this->specialCharacters['right-curly-brace'], $string)) {
                     $string = str_replace($this->specialCharacters['left-curly-brace'], null, str_replace($this->specialCharacters['right-curly-brace'], null, $string));
                     $toSetValue = true;
                 } else {
@@ -321,7 +329,11 @@ final class JsonDbStructure
                     if ($toSetValue && !is_bool($jsonStructure[$topLevelObject][$_string])) {
                         $jsyn[$i] = $jsonStructure[$topLevelObject][$_string];
                     } else {
+                        if ($replaceWithComma){
+                            $string = ", $string";
+                        }
                         $jsyn[$i] = (isset($jsonStructure[$topLevelObject][$_string]) && $jsonStructure[$topLevelObject][$_string] == true) ? strtoupper($string) : null;
+                       
                     }
                 } else {
                     if (!$isConstant) {
@@ -333,7 +345,7 @@ final class JsonDbStructure
                 }
             }
         }
-
+       //echo "<pre>".print_r($jsyn)."</pre>";
         return implode(' ', $jsyn);
     }
 

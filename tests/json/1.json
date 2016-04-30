@@ -65,6 +65,7 @@
 					{
 						"name":"subject_faculty",
 						"data-type":"int",
+						"foreign-key":"(subject_faculty)",
 						"references":"faculty(fac_id)",
 						"on-update":"cascade",
 						"on-delete":"set null"
