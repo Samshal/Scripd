@@ -37,8 +37,6 @@ final class JsynExtractor
     /**
      * @param $jsynFile string | PathUtil
      * @param $sqlSyntax string
-     *
-     * @return null
      */
     public function __construct($jsynFile, $sqlSyntax)
     {
