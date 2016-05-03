@@ -1,0 +1,13 @@
+{
+	"mysql":[
+		"[REFERENCES]",
+		"[{{REFERENCES}}]",
+		"[MATCH FULL]",
+		"[MATCH PARTIAL]",
+		"[MATCH SIMPLE]",
+		"[ON UPDATE]",
+		"[{{ON UPDATE}}]",
+		"[ON DELETE]",
+		"[{{ON DELETE}}]"
+	]
+}

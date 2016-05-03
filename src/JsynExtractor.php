@@ -34,12 +34,25 @@ final class JsynExtractor
      */
     private $sqlSyntax;
 
+    /**
+     * @param $jsynFile string | PathUtil
+     * @param $sqlSyntax string
+     *
+     * @return null
+     */
     public function __construct($jsynFile, $sqlSyntax)
     {
         self::setJsynFile($jsynFile);
         self::setSqlSyntax($sqlSyntax);
     }
 
+    /**
+     * @param $jsynFile string | PathUtil
+     *
+     * Setter function for the jsonFile global property
+     *
+     * @return null
+     */
     public function setJsynFile($jsynFile)
     {
         $this->jsyn = json_decode(file_get_contents($jsynFile));
@@ -52,6 +65,13 @@ final class JsynExtractor
         return;
     }
 
+     /**
+     * @param $sqlSyntax string
+     *
+     * Setter function for the sqlSyntax global property
+     *
+     * @return null
+     */
     public function setSqlSyntax($sqlSyntax)
     {
         $this->sqlSyntax = $sqlSyntax;
@@ -63,13 +83,20 @@ final class JsynExtractor
         return;
     }
 
+     /**
+     * @return Array
+     */
     public function getJsyn()
     {
         return $this->jsyn;
-
-        return;
     }
 
+     /**
+     * Performs extraction of the appropriate sql syntax
+     * fromthe supplied jsyn file.
+     *
+     * @return null
+     */
     public function formatJsyn()
     {
         for ($i = 0; $i < count($this->jsyn); ++$i) {
@@ -81,7 +108,12 @@ final class JsynExtractor
         }
     }
 
-    public function toString()
+    /**
+     * Returns the extracted jsyn as a string
+     *
+     * @return null
+     */
+    public function __toString()
     {
         return implode(' ', $this->getJsyn());
     }
