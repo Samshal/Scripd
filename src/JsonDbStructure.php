@@ -106,12 +106,17 @@ final class JsonDbStructure
     private $generatedSql = [];
 
     /**
-     * @param $jsonStructureFile PathUtil | string
+     * @param $jsonStructureFile PathUtil | string | Array
      * @param $sqlVendor string
      */
     public function __construct($jsonStructureFile, $sqlVendor)
     {
-        $this->jsonStructure = self::getObjectFromJsonFile($jsonStructureFile);
+        if (is_array($jsonStructureFile)){
+            $this->jsonStructure = $jsonStructureFile;
+        }
+        else {
+            $this->jsonStructure = self::getObjectFromJsonFile($jsonStructureFile);
+        }
         $this->sqlVendor = $sqlVendor;
     }
 

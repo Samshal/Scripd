@@ -18,10 +18,27 @@ class JsonDbStructureTest extends PHPUnit_Framework_TestCase
         return $jsonDbStructure->getGeneratedSql(';');
     }
 
+    public function parseArrayInput($jsonFile)
+    {
+        $jsonArray = json_decode(file_get_contents($jsonFile), JSON_FORCE_OBJECT);
+
+        $jsonDbStructure = new Samshal\Scripd\JsonDbStructure($jsonArray, 'mysql');
+        $jsonDbStructure->parseStructure();
+        return $jsonDbStructure->getGeneratedSql(';');
+    }
+
     /**
      * @dataProvider dataProvider
     */
-    public function testStructureParser($expected, $jsonFile)
+    public function testStructureParserWithJsonFileInput($expected, $jsonFile)
+    {
+        $this->assertEquals($expected, self::parseJsonFile($jsonFile));
+    }
+
+    /**
+     * @dataProvider dataProvider
+    */
+    public function testStructureParserWithArrayInput($expected, $jsonFile)
     {
         $this->assertEquals($expected, self::parseJsonFile($jsonFile));
     }
