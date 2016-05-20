@@ -110,7 +110,7 @@ final class JsonDbStructure
      */
     public function __construct($jsonStructureFile, $sqlVendor)
     {
-        if (is_array($jsonStructureFile)){
+        if (is_array($jsonStructureFile)) {
             $this->jsonStructure = $jsonStructureFile;
         }
         else {
@@ -333,7 +333,7 @@ final class JsonDbStructure
                     if ($toSetValue && !is_bool($jsonStructure[$topLevelObject][$_string])) {
                         $jsyn[$i] = $jsonStructure[$topLevelObject][$_string];
                     } else {
-                        if ($replaceWithComma){
+                        if ($replaceWithComma) {
                             $string = ", $string";
                         }
                         $jsyn[$i] = (isset($jsonStructure[$topLevelObject][$_string]) && $jsonStructure[$topLevelObject][$_string] == true) ? strtoupper($string) : null;
