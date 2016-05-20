@@ -8,6 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 namespace Samshal\Scripd;
 
 /**
@@ -50,7 +51,7 @@ final class JsonDbStructure
     private $objectDefiners = [
         'columns',
         'add-column',
-        'foreign-key'
+        'foreign-key',
     ];
 
     /**
@@ -108,12 +109,11 @@ final class JsonDbStructure
      * @param $jsonStructureFile PathUtil | string | Array
      * @param $sqlVendor string
      */
-    public function __construct($jsonStructureFile, $sqlVendor)
+    public function __construct($jsonStructureFile, $sqlVendor='default')
     {
         if (is_array($jsonStructureFile)) {
             $this->jsonStructure = $jsonStructureFile;
-        }
-        else {
+        } else {
             $this->jsonStructure = self::getObjectFromJsonFile($jsonStructureFile);
         }
         $this->sqlVendor = $sqlVendor;
@@ -316,12 +316,12 @@ final class JsonDbStructure
                     if (self::enclosed($this->specialCharacters['left-curly-brace'], $this->specialCharacters['right-curly-brace'], $string)) {
                         $string = str_replace($this->specialCharacters['left-curly-brace'], null, str_replace($this->specialCharacters['right-curly-brace'], null, $string));
                         $toSetValue = true;
-                    } else if (self::enclosed($this->specialCharacters['left-bracket'], $this->specialCharacters['right-bracket'], $string)) {
+                    } elseif (self::enclosed($this->specialCharacters['left-bracket'], $this->specialCharacters['right-bracket'], $string)) {
                         $string = str_replace($this->specialCharacters['left-bracket'], null, str_replace($this->specialCharacters['right-bracket'], null, $string));
                         $toSetValue = false;
                         $replaceWithComma = true;
                     }
-                } else if (self::enclosed($this->specialCharacters['left-curly-brace'], $this->specialCharacters['right-curly-brace'], $string)) {
+                } elseif (self::enclosed($this->specialCharacters['left-curly-brace'], $this->specialCharacters['right-curly-brace'], $string)) {
                     $string = str_replace($this->specialCharacters['left-curly-brace'], null, str_replace($this->specialCharacters['right-curly-brace'], null, $string));
                     $toSetValue = true;
                 } else {
@@ -337,7 +337,6 @@ final class JsonDbStructure
                             $string = ", $string";
                         }
                         $jsyn[$i] = (isset($jsonStructure[$topLevelObject][$_string]) && $jsonStructure[$topLevelObject][$_string] == true) ? strtoupper($string) : null;
-                       
                     }
                 } else {
                     if (!$isConstant) {
@@ -349,7 +348,7 @@ final class JsonDbStructure
                 }
             }
         }
-        
+
         return implode(' ', $jsyn);
     }
 

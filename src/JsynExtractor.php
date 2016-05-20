@@ -48,8 +48,6 @@ final class JsynExtractor
      * @param $jsynFile string | PathUtil
      *
      * Setter function for the jsonFile global property
-     *
-     * @return null
      */
     public function setJsynFile($jsynFile)
     {
@@ -63,12 +61,10 @@ final class JsynExtractor
         return;
     }
 
-     /**
+    /**
      * @param $sqlSyntax string
      *
      * Setter function for the sqlSyntax global property
-     *
-     * @return null
      */
     public function setSqlSyntax($sqlSyntax)
     {
@@ -81,19 +77,17 @@ final class JsynExtractor
         return;
     }
 
-     /**
-     * @return Array
+    /**
+     * @return array
      */
     public function getJsyn()
     {
         return $this->jsyn;
     }
 
-     /**
+    /**
      * Performs extraction of the appropriate sql syntax
      * fromthe supplied jsyn file.
-     *
-     * @return null
      */
     public function formatJsyn()
     {
@@ -107,9 +101,7 @@ final class JsynExtractor
     }
 
     /**
-     * Returns the extracted jsyn as a string
-     *
-     * @return null
+     * Returns the extracted jsyn as a string.
      */
     public function __toString()
     {
