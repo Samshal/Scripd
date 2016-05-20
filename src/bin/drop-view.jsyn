@@ -1,5 +1,5 @@
 {
-	"mysql":[
+	"default":[
 		"DROP VIEW",
 		"[{{IF EXISTS}}]",
 		"{{name}}",

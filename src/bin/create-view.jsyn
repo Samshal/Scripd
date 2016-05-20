@@ -1,5 +1,5 @@
 {
-	"mysql":[
+	"default":[
 		"CREATE",
 		"[OR REPLACE]",
 		"[ALGORITHM]",

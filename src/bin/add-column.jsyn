@@ -1,5 +1,5 @@
 {
-	"mysql":[
+	"default":[
 		"{{NAME}}",
 		"{{DATA TYPE}}",
 		"[{{NULL}}]",

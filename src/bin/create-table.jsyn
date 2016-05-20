@@ -1,5 +1,5 @@
 {
-	"mysql":[
+	"default":[
 		"CREATE TABLE",
 		"[{{TEMPORARY}}]",
 		"[{{IF NOT EXISTS}}]",

@@ -1,5 +1,5 @@
 {
-	"mysql":[
+	"default":[
 		"[REFERENCES]",
 		"[{{REFERENCES}}]",
 		"[MATCH FULL]",

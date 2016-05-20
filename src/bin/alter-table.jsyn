@@ -1,5 +1,5 @@
 {
-	"mysql":[
+	"default":[
 		"ALTER TABLE",
 		"{{name}}",
 		"[ADD COLUMN]",
