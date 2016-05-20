@@ -1,5 +1,5 @@
 {
-	"mysql":[
+	"default":[
 		"DROP TABLE",
 		"[{{TEMPORARY}}]",
 		"[{{IF EXISTS}}]",

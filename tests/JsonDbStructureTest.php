@@ -40,7 +40,7 @@ class JsonDbStructureTest extends PHPUnit_Framework_TestCase
     */
     public function testStructureParserWithArrayInput($expected, $jsonFile)
     {
-        $this->assertEquals($expected, self::parseJsonFile($jsonFile));
+        $this->assertEquals($expected, self::parseArrayInput($jsonFile));
     }
 
     public function dataProvider()
