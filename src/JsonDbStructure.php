@@ -119,14 +119,28 @@ final class JsonDbStructure
         $this->sqlVendor = $sqlVendor;
     }
 
+    /**
+     * @param $jsynDirectory string
+     *
+     * @return void
+     */
     public function setJsynDirectory($jsynDirectory)
     {
         $this->jsynDirectory = $jsynDirectory;
+
+        return;
     }
 
+    /**
+     * @param $sqlVendor string
+     *
+     * @return void
+     */
     public function setSqlVendor($sqlVendor)
     {
         $this->sqlVendor = $sqlVendor;
+
+        return;
     }
 
     /**
@@ -425,7 +439,7 @@ final class JsonDbStructure
      * present within the supplied json structure.
      * Returns the name of the object if found and false if not found.
      *
-     * @return string| bool
+     * @return string
      */
     public function isAnotherObjectPresent($jsonStructure)
     {
@@ -435,7 +449,7 @@ final class JsonDbStructure
             }
         }
 
-        return false;
+        return;
     }
 
     /**
