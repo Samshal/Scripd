@@ -13,7 +13,7 @@ class JsonDbStructureTest extends PHPUnit_Framework_TestCase
 {
     public function parseJsonFile($jsonFile)
     {
-        $jsonDbStructure = new Samshal\Scripd\JsonDbStructure($jsonFile, 'default');
+        $jsonDbStructure = new Samshal\Scripd\JsonDbStructure($jsonFile, 'sqlite');
         $jsonDbStructure->parseStructure();
 
         return $jsonDbStructure->getGeneratedSql(';');
@@ -23,7 +23,7 @@ class JsonDbStructureTest extends PHPUnit_Framework_TestCase
     {
         $jsonArray = json_decode(file_get_contents($jsonFile), JSON_FORCE_OBJECT);
 
-        $jsonDbStructure = new Samshal\Scripd\JsonDbStructure($jsonArray, 'default');
+        $jsonDbStructure = new Samshal\Scripd\JsonDbStructure($jsonArray, 'mysql');
         $jsonDbStructure->parseStructure();
 
         return $jsonDbStructure->getGeneratedSql(';');
