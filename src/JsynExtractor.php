@@ -55,6 +55,9 @@ final class JsynExtractor
 
         if (isset($this->sqlSyntax)) {
             $sqlSyntax = $this->sqlSyntax;
+            if (!isset($this->jsyn->$sqlSyntax)){
+                $sqlSyntax = "default";
+            }
             $this->jsyn = $this->jsyn->$sqlSyntax;
         }
 
@@ -71,6 +74,10 @@ final class JsynExtractor
         $this->sqlSyntax = $sqlSyntax;
 
         if (isset($this->jsyn->$sqlSyntax)) {
+            $this->jsyn = $this->jsyn->$sqlSyntax;
+        }
+        else {
+            $sqlSyntax ="default";
             $this->jsyn = $this->jsyn->$sqlSyntax;
         }
 
