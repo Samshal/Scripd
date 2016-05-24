@@ -35,7 +35,7 @@ final class JsynExtractor
     private $sqlSyntax;
 
     /**
-     * @param $jsynFile string | PathUtil
+     * @param string $jsynFile string | PathUtil
      * @param $sqlSyntax string
      */
     public function __construct($jsynFile, $sqlSyntax)
@@ -80,7 +80,7 @@ final class JsynExtractor
         if (isset($this->jsyn->$sqlSyntax)) {
             $this->jsyn = $this->jsyn->$sqlSyntax;
         } else {
-            $sqlSyntax ="default";
+            $sqlSyntax = "default";
             $this->jsyn = $this->jsyn->$sqlSyntax;
         }
         
@@ -88,7 +88,7 @@ final class JsynExtractor
     }
 
     /**
-     * @return array
+     * @return string
      */
     public function getJsyn()
     {
