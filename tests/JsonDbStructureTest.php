@@ -52,7 +52,7 @@ class JsonDbStructureTest extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals($expected, self::parseArrayInput($jsonFile));
     }
-    
+
     /**
      * @dataProvider dataProvider
      */
@@ -63,7 +63,7 @@ class JsonDbStructureTest extends PHPUnit_Framework_TestCase
 
     public function dataProvider()
     {
-        return array(
+        return [
             'Create Database with Multiple Tables' => [
                 'CREATE DATABASE another_unify_schools;'.
                  'USE another_unify_schools;'.
@@ -81,6 +81,6 @@ class JsonDbStructureTest extends PHPUnit_Framework_TestCase
             'Create View' => [
                 'CREATE VIEW student_vw (id, first_name, last_name, class) AS select * from students where id < 3 WITH LOCAL CHECK OPTION', __DIR__.'/json/4.json',
             ],
-        );
+        ];
     }
 }
