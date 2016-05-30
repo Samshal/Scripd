@@ -58,12 +58,10 @@ final class JsynExtractor
         if (isset($this->sqlSyntax)) {
             $sqlSyntax = $this->sqlSyntax;
             if (!isset($this->jsyn->$sqlSyntax)) {
-                $sqlSyntax = "default";
+                $sqlSyntax = 'default';
             }
             $this->jsyn = $this->jsyn->$sqlSyntax;
         }
-
-        return;
     }
 
     /**
@@ -80,11 +78,9 @@ final class JsynExtractor
         if (isset($this->jsyn->$sqlSyntax)) {
             $this->jsyn = $this->jsyn->$sqlSyntax;
         } else {
-            $sqlSyntax = "default";
+            $sqlSyntax = 'default';
             $this->jsyn = $this->jsyn->$sqlSyntax;
         }
-        
-        return;
     }
 
     /**
@@ -110,8 +106,6 @@ final class JsynExtractor
                 $this->jsyn[$i] = strtoupper($this->jsyn[$i]);
             }
         }
-
-        return;
     }
 
     /**

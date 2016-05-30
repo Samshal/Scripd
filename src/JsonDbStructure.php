@@ -12,7 +12,7 @@
 namespace Samshal\Scripd;
 
 /**
- * A robust SQL Generator. Parses database structures defined in json based on the 
+ * A robust SQL Generator. Parses database structures defined in json based on the
  * jsyn file format and generates corresponding sql queries.
  *
  * @since  1.0
@@ -62,12 +62,12 @@ final class JsonDbStructure
      * square brackets are listed in this array
      */
     private $specialCharacters = [
-        'left-curly-brace' => '{',
-        'right-curly-brace' => '}',
-        'left-square-bracket' => '[',
+        'left-curly-brace'     => '{',
+        'right-curly-brace'    => '}',
+        'left-square-bracket'  => '[',
         'right-square-bracket' => ']',
-        'left-bracket' => '(',
-        'right-bracket' => ')',
+        'left-bracket'         => '(',
+        'right-bracket'        => ')',
     ];
 
     /**
@@ -109,7 +109,7 @@ final class JsonDbStructure
      * @param $jsonStructureFile PathUtil | string | Array
      * @param $sqlVendor string
      */
-    public function __construct($jsonStructureFile, $sqlVendor='default')
+    public function __construct($jsonStructureFile, $sqlVendor = 'default')
     {
         if (is_array($jsonStructureFile)) {
             $this->jsonStructure = $jsonStructureFile;
@@ -127,8 +127,6 @@ final class JsonDbStructure
     public function setJsynDirectory($jsynDirectory)
     {
         $this->jsynDirectory = $jsynDirectory;
-
-        return;
     }
 
     /**
@@ -139,8 +137,6 @@ final class JsonDbStructure
     public function setSqlVendor($sqlVendor)
     {
         $this->sqlVendor = $sqlVendor;
-
-        return;
     }
 
     /**
@@ -167,7 +163,7 @@ final class JsonDbStructure
     /**
      * @param $jsonFile PathUtil | string
      *
-     * Gets the content of a json file, decodes it and 
+     * Gets the content of a json file, decodes it and
      * returns an array of the decoded json.
      *
      * @return array
@@ -373,7 +369,7 @@ final class JsonDbStructure
      *
      * Checks to see if a string ($enclosee) is enclosed by special characters
      * such as '{' and '}' and '[' and ']'.
-     * 
+     *
      * @return bool
      */
     private function enclosed($encloserPre, $encloserPost, $enclosee)
@@ -448,8 +444,6 @@ final class JsonDbStructure
                 return $topLevelObject;
             }
         }
-
-        return;
     }
 
     /**
